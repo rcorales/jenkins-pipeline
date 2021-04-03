@@ -31,7 +31,7 @@ pipeline {
                 sh script: '''
                 #!/bin/bash
                 cd $WORKSPACE/jenkins-pipeline/python
-                docker build . --network host -t rccorales/img:1.0.0${BUILD_NUMBER} 
+                docker build . --network host -t rccorales/img:1.0.0 
                 '''
             }
         }
@@ -39,7 +39,7 @@ pipeline {
         stage('docker push') {
             steps{
                 sh(script: """
-                    docker push rccorales/img:1.0.0${BUILD_NUMBER}
+                    docker push rccorales/img:1.0.0
                 """)
             }
         }
